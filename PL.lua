@@ -293,22 +293,6 @@ if game.PlaceId == 155615604 then
 		vehicleflyspeed = value
     
     end)
-    
-    charactertab:Button('Gun Grabber', function()
-    
-        local BuyGamepass = game:GetService("MarketplaceService"):UserOwnsGamePassAsync(tonumber((game:GetService("Players").LocalPlayer.CharacterAppearance):split('=')[#((game:GetService("Players").LocalPlayer.CharacterAppearance):split('='))]), 96651)
-        if BuyGamepass then
-            workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["Remington 870"].ITEMPICKUP)
-            workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["M4A1"].ITEMPICKUP)
-            workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["AK-47"].ITEMPICKUP)
-            workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["M9"].ITEMPICKUP)
-        else
-            workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["Remington 870"].ITEMPICKUP)
-            workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["AK-47"].ITEMPICKUP)
-            workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["M9"].ITEMPICKUP)
-        end
-    
-end)
 
 charactertab:Dropdown("Gun Mods",{"M9", "Remington 870", "AK-47"}, function(v)
     
@@ -327,70 +311,6 @@ charactertab:Dropdown("Gun Mods",{"M9", "Remington 870", "AK-47"}, function(v)
     end
 
 end)
-
-charactertab:Toggle('Respawn with Guns', false, function(value)
-    
-    getgenv().resgun = value
-    if getgenv().resgun == true then 
-        _G.Auto_Guns = true
-        
-        game.Players.LocalPlayer.CharacterAdded:Connect(function()
-            if _G.Auto_Guns then
-                pcall(function()
-                    if BuyGamepass then
-                        workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["Remington 870"].ITEMPICKUP)
-                        workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["M4A1"].ITEMPICKUP)
-                        workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["AK-47"].ITEMPICKUP)
-                        workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["M9"].ITEMPICKUP)
-                    else
-                        workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["Remington 870"].ITEMPICKUP)
-                        workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["AK-47"].ITEMPICKUP)
-                        workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["M9"].ITEMPICKUP)
-                    end
-                end)
-            end
-        end)
-    else if getgenv().resgun == false then
-        _G.Auto_Guns = false
-
-    end
-end
-end)
-    
-    charactertab:Toggle('Instant Respawn', false, function(value)
-        
-        getgenv().instre = value
-    if getgenv().instre == true then 
-        _G.Loop = true
-        
-            while _G.Loop == true do
-                wait()
-                if game.Players.LocalPlayer.Character.Humanoid.Health <= 15 then
-                    local location = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
-                    local A_1 = "\66\114\111\121\111\117\98\97\100\100"
-                    local Event = game:GetService("Workspace").Remote.loadchar
-                    Event:InvokeServer(A_1)
-                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = location
-                end
-            end
-    
-    
-    else if getgenv().instre == false then
-        
-    _G.Loop = false
-        
-            while _G.Loop == true do
-                wait()
-                if game.Players.LocalPlayer.Character.Humanoid.Health <= 15 then
-                    local A_1 = "\66\114\111\121\111\117\98\97\100\100"
-                    local Event = game:GetService("Workspace").Remote.loadchar
-                    Event:InvokeServer(A_1)
-                end
-            end
-    end
-        end
-    
-    end)
 
     charactertab:Toggle('Infinite Stamina', false, function(value)
     
@@ -679,18 +599,6 @@ end)
         end
 
         lib:Notification("Success", "You are now on the 'Criminal' team.", "Close") -- (header, text, closebutton) --
-    
-    end)
-    
-    teamtab:Button('Be Neutral', function()
-    
-        local savedcf = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
-		local savedcamcf = game.Workspace.CurrentCamera.CFrame
-		game.Workspace.Remote.loadchar:InvokeServer(nil, BrickColor.new("Bright red").Name)
-		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = savedcf
-		game.Workspace.CurrentCamera.CFrame = savedcamcf
-
-        lib:Notification("Success", "You are now on the 'Neutral' team.", "Close") -- (header, text, closebutton) --
     
     end)
     
