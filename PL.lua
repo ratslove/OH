@@ -669,16 +669,6 @@ end)
     
     end)
 
-    misctab:Button('Grab Keycard', function()
-    
-        local args = {
-            [1] = workspace.Prison_ITEMS.single["Key card"].ITEMPICKUP
-        }
-        
-        workspace.Remote.ItemHandler:InvokeServer(unpack(args))
-    
-    end)
-
 teletab:Dropdown('Teleports', {"Cell Room", "Cafeteria", "Guard Spawn", "Prison Courtyard", "Prison Garage", "Prison Gate", "Criminal Base", "City"}, function(v)
 
     nigerian = v
