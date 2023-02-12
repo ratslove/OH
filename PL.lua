@@ -315,22 +315,59 @@ end)
     charactertab:Toggle('Infinite Stamina', false, function(value)
     
         stamina_thing = value
+
+        States.Inf_Stam = true
     
         if stamina_thing == true then
             
-            lib:Notification('Alert', 'This feature is currently disabled.', 'Close')
-
-            print("Infinite Stamina: On")
+            local plr = game:GetService("Players").LocalPlayer
+            for i,v in next, getgc() do 
+                if type(v) == "function" and getfenv(v).script and getfenv(v).script == plr.Character.ClientInputHandler then 
+                    for i2,v2 in next, debug.getupvalues(v) do 
+                        if type(v2) == "number" then 
+                            debug.setupvalue(v, i2, 9999)
+                        end
+                    end
+                end
+            end
             
             
             else if stamina_thing == false then
+
+                States.Inf_Stam = false
                 
-                print("Infinite Stamina: Off")
+                local plr = game:GetService("Players").LocalPlayer
+                for i,v in next, getgc() do 
+                    if type(v) == "function" and getfenv(v).script and getfenv(v).script == plr.Character.ClientInputHandler then 
+                        for i2,v2 in next, debug.getupvalues(v) do 
+                            if type(v2) == "number" then 
+                                debug.setupvalue(v, i2, 12)
+                            end
+                        end
+                    end
+                end
                 
             end
         end
 
     end)
+
+    coroutine.wrap(function()
+        while wait() do
+            if States.Inf_Stam then
+                local plr = game:GetService("Players").LocalPlayer
+                        for i,v in next, getgc() do 
+                            if type(v) == "function" and getfenv(v).script and getfenv(v).script == plr.Character.ClientInputHandler then 
+                                for i2,v2 in next, debug.getupvalues(v) do 
+                                    if type(v2) == "number" then 
+                                        debug.setupvalue(v, i2, 9999)
+                                    end
+                                end
+                            end
+                        end
+            end
+        end
+    end)()
 
 charactertab:Toggle('Kill Aura', false, function(value)
 
