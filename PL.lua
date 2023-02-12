@@ -334,31 +334,37 @@ end)
 
 charactertab:Toggle('Kill Aura', false, function(value)
 
-getgenv().killauralol = value
-if getgenv().killauralol == true then
+    getgenv().killauralol = value
+    if getgenv().killauralol == true then
 
-    States.Kill_Aura = true
+        States.Kill_Aura = true
 
-else if getgenv().killauralol == false then
+        else if getgenv().killauralol == false then
 
-    States.Kill_Aura = false
+        States.Kill_Aura = false
 
+        end
     end
-end
 
 end)
 
 coroutine.wrap(function()
 	while wait() do
 		if States.Kill_Aura then
-                for i, e in pairs(game.Players:GetChildren()) do
-                    if e ~= game.Players.LocalPlayer then
-                        local meleeEvent = game:GetService("ReplicatedStorage").meleeEvent
-                        meleeEvent:FireServer(e)                                     
-                    end 
-                end 
-            end 
+			for i,v in pairs(game.Players:GetPlayers()) do
+				pcall(function()
+					if v ~= game.Players.LocalPlayer then
+						local Distance = (v.Character:FindFirstChildOfClass("Part").Position - game.Players.LocalPlayer.Character:FindFirstChildOfClass("Part").Position).magnitude
+						if Distance <= 10 then
+							for i = 1,25 do
+								game.ReplicatedStorage.meleeEvent:FireServer(v)
+							end
+						end
+					end
+				end)
+			end
 		end
+	end
 end)()
 
 charactertab:Toggle('Anti Void', false, function(value)
