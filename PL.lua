@@ -416,6 +416,8 @@ end)
         
         States.autore = true
         
+        refresh()
+        
         plr.CharacterAdded:Connect(function(char)
     	task.spawn(function()
     		--//Autorespawn
@@ -432,6 +434,8 @@ end)
         else if value == false then
             
             States.autore = false
+            
+            refresh()
             
         end
     end
