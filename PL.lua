@@ -180,7 +180,7 @@ if game.PlaceId == 155615604 then
     States = {
 		autore = false,
 		Killaura = false,
-		Inf_Stam = false,
+		Inf_Stam = true,
 		Kill_Aura = false,
 		Anti_Void = false,
 		SuperPunch = false,
