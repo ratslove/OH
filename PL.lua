@@ -445,10 +445,10 @@ end)
     charactertab:Toggle('Infinite Stamina', false, function(value)
     
         stamina_thing = value
-
-        States.Inf_Stam = true
     
         if stamina_thing == true then
+				
+	    States.Inf_Stam = true
             
             local plr = game:GetService("Players").LocalPlayer
             for i,v in next, getgc() do 
@@ -484,7 +484,7 @@ end)
 
     coroutine.wrap(function()
         while wait() do
-            if States.Inf_Stam then
+            if States.Inf_Stam == true then
                 local plr = game:GetService("Players").LocalPlayer
                         for i,v in next, getgc() do 
                             if type(v) == "function" and getfenv(v).script and getfenv(v).script == plr.Character.ClientInputHandler then 
