@@ -4,8 +4,6 @@ if game.PlaceId == 155615604 then
     local folder = Instance.new("Folder")
     folder.Name = "Storage"
     folder.Parent = Game
-
-    local States = {}
     
     local win = lib:Window("Oasis Hub - Prison Life",Color3.fromRGB(233, 125, 245), Enum.KeyCode)
     
@@ -18,6 +16,8 @@ if game.PlaceId == 155615604 then
     local uitab = win:Tab('UI')
     local credstab = win:Tab('Credits')
 
+    local plr = game.Players.LocalPlayer
+    
     IYMouse = game.Players.LocalPlayer:GetMouse()
 
     function getRoot(char)
@@ -29,6 +29,47 @@ if game.PlaceId == 155615604 then
         if tonumber(str) ~= nil or str == 'inf' then
             return true
         end
+    end
+    
+    function MoveTo(Pos,t)
+		if typeof(Pos):lower() == "position" then
+			Pos = CFrame.new(Pos)
+		end
+		for i =1,3 do
+			plr.Character:FindFirstChild("HumanoidRootPart").CFrame = Pos
+		end
+	end
+
+    function getpos()
+    		return plr.Character:FindFirstChild("HumanoidRootPart").CFrame
+    	end
+    
+    function refresh(Pos)
+    		if not Pos then
+    			Pos = getpos()
+    		end
+    		local Goto = Pos or getpos()
+    		local Connections = {}
+    		local Cam = workspace.CurrentCamera.CFrame
+    		Connections[1] = plr.CharacterAdded:Connect(function(charnew)
+    			pcall(function()
+    				task.spawn(function()
+    					workspace.CurrentCamera:GetPropertyChangedSignal("CFrame"):Wait()
+    					for i =1,5 do
+    						workspace.CurrentCamera.CFrame = Cam
+    					end
+    				end)
+    				repeat task.wait() until charnew and charnew:FindFirstChild("HumanoidRootPart")
+    				MoveTo(Goto)
+    				task.spawn(function()
+    					wait(.05)
+    					MoveTo(Goto)
+    				end)
+    				Connections[1]:Disconnect()
+    			end)
+    		end)
+    		Events.loadchar()
+    		return
     end
 
     FLYING = false
@@ -136,6 +177,30 @@ if game.PlaceId == 155615604 then
         }
     }
     
+    States = {
+		autore = false,
+		Killaura = false,
+		Inf_Stam = false,
+		Kill_Aura = false,
+		Anti_Void = false,
+		SuperPunch = false,
+		Fast_Punch = false,
+	}
+
+    Events = {
+    		TeamEvent = workspace.Remote.TeamEvent,
+    		ShootEvent = game:GetService("ReplicatedStorage").ShootEvent,
+    		loadchar = function()
+    			if plr.Team == game.Teams.Inmates then
+    				local ohString1 = "Bright orange"
+    				workspace.Remote.TeamEvent:FireServer(ohString1)
+    			else
+    				local ohString1 = "Bright blue"
+    				workspace.Remote.TeamEvent:FireServer(ohString1)
+    			end
+    		end,
+    }
+        
     maintab:Textbox('WalkSpeed', false, function(value1)    
         
         var.Player.WalkSpeed = value1
@@ -294,6 +359,39 @@ if game.PlaceId == 155615604 then
     
     end)
 
+charactertab:Button('Gun Grabber', function()
+
+    local saved = game:GetService("Players").LocalPlayer.Character:GetPrimaryPartCFrame()
+		game:GetService("Players").LocalPlayer.Character:SetPrimaryPartCFrame(CFrame.new(workspace.Prison_ITEMS.giver["Remington 870"].ITEMPICKUP.Position))
+		for i =1,2 do
+			local ohInstance1 = game:GetService("Workspace").Prison_ITEMS.giver.M9:GetChildren()[6]
+			workspace.Remote.ItemHandler:InvokeServer(ohInstance1)
+			task.spawn(function()
+				for i =1,3 do
+					workspace.Remote.ItemHandler:InvokeServer(ohInstance1)
+				end		
+			end)
+			local ohInstance2 = workspace.Prison_ITEMS.giver["Remington 870"].ITEMPICKUP
+			workspace.Remote.ItemHandler:InvokeServer(ohInstance2)
+			task.spawn(function()
+				for i =1,3 do
+					workspace.Remote.ItemHandler:InvokeServer(ohInstance2)
+				end		
+			end)
+			local ohInstance3 = game:GetService("Workspace").Prison_ITEMS.giver["AK-47"]:GetChildren()[51]
+			wait()
+			game:GetService("Players").LocalPlayer.Character:SetPrimaryPartCFrame(CFrame.new(game:GetService("Workspace").Prison_ITEMS.giver["AK-47"]:GetChildren()[51].Position+Vector3.new(0,4,0)))
+			workspace.Remote.ItemHandler:InvokeServer(ohInstance3)
+			task.spawn(function()
+				for i =1,3 do
+					workspace.Remote.ItemHandler:InvokeServer(ohInstance3)
+				end		
+			end)
+		end
+		game:GetService("Players").LocalPlayer.Character:SetPrimaryPartCFrame(saved)
+    
+end)
+
 charactertab:Dropdown("Gun Mods",{"M9", "Remington 870", "AK-47"}, function(v)
     
     local module = nil
@@ -312,6 +410,34 @@ charactertab:Dropdown("Gun Mods",{"M9", "Remington 870", "AK-47"}, function(v)
 
 end)
 
+    charactertab:Toggle("Instant Respawn", false, function(value)
+    
+        if value == true then
+        
+        States.autore = true
+        
+        plr.CharacterAdded:Connect(function(char)
+    	task.spawn(function()
+    		--//Autorespawn
+    		if States.autore == true then
+    			repeat task.wait() until char and char:FindFirstChildOfClass("Humanoid")
+    			char:FindFirstChildOfClass("Humanoid").BreakJointsOnDeath = false
+    			char:FindFirstChildOfClass("Humanoid").Died:Connect(function()
+    				refresh()
+    			end)
+    		end
+    	end)
+    end)
+        
+        else if value == false then
+            
+            States.autore = false
+            
+        end
+    end
+        
+    end)
+    
     charactertab:Toggle('Infinite Stamina', false, function(value)
     
         stamina_thing = value
@@ -387,7 +513,7 @@ end)
 
 coroutine.wrap(function()
 	while wait() do
-		if States.Kill_Aura then
+		if States.Kill_Aura == true then
 			for i,v in pairs(game.Players:GetPlayers()) do
 				pcall(function()
 					if v ~= game.Players.LocalPlayer then
