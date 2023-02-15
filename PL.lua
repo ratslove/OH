@@ -185,6 +185,7 @@ if game.PlaceId == 155615604 then
 		Anti_Void = false,
 		SuperPunch = false,
 		Fast_Punch = false,
+        AutoItems = false,
 	}
 
     Events = {
@@ -408,6 +409,64 @@ charactertab:Dropdown("Gun Mods",{"M9", "Remington 870", "AK-47"}, function(v)
         module["AutoFire"] = true
     end
 
+end)
+
+function All_Guns()
+    local saved = game:GetService("Players").LocalPlayer.Character:GetPrimaryPartCFrame()
+    game:GetService("Players").LocalPlayer.Character:SetPrimaryPartCFrame(CFrame.new(workspace.Prison_ITEMS.giver["Remington 870"].ITEMPICKUP.Position))
+    for i =1,2 do
+        local ohInstance1 = game:GetService("Workspace").Prison_ITEMS.giver.M9:GetChildren()[6]
+        workspace.Remote.ItemHandler:InvokeServer(ohInstance1)
+        task.spawn(function()
+            for i =1,3 do
+                workspace.Remote.ItemHandler:InvokeServer(ohInstance1)
+            end		
+        end)
+        local ohInstance2 = workspace.Prison_ITEMS.giver["Remington 870"].ITEMPICKUP
+        workspace.Remote.ItemHandler:InvokeServer(ohInstance2)
+        task.spawn(function()
+            for i =1,3 do
+                workspace.Remote.ItemHandler:InvokeServer(ohInstance2)
+            end		
+        end)
+        local ohInstance3 = game:GetService("Workspace").Prison_ITEMS.giver["AK-47"]:GetChildren()[51]
+        wait()
+        game:GetService("Players").LocalPlayer.Character:SetPrimaryPartCFrame(CFrame.new(game:GetService("Workspace").Prison_ITEMS.giver["AK-47"]:GetChildren()[51].Position+Vector3.new(0,4,0)))
+        workspace.Remote.ItemHandler:InvokeServer(ohInstance3)
+        task.spawn(function()
+            for i =1,3 do
+                workspace.Remote.ItemHandler:InvokeServer(ohInstance3)
+            end		
+        end)
+    end
+    game:GetService("Players").LocalPlayer.Character:SetPrimaryPartCFrame(saved)
+end
+
+charactertab:Toggle("Respawn with Guns", false, function(value)
+    
+    if value == true then
+    
+        States.AutoItems = true
+
+        else if value == false then
+
+            States.AutoItems = false
+
+        end
+    end
+
+end)
+
+plr.CharacterAdded:Connect(function(char)
+    -- Respawn with Guns
+    repeat task.wait() until char and char:FindFirstChildOfClass("Humanoid")
+    task.spawn(function()
+        wait(.6)
+        if States.AutoItems == true then
+            All_Guns()
+        end
+    end)
+    
 end)
 
     charactertab:Toggle("Instant Respawn", false, function(value)
