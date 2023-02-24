@@ -465,8 +465,7 @@ if game.PlaceId == 1962086868 then
         lib:ChangePresetColor(Color3.fromRGB(t.R * 255, t.G * 255, t.B * 255))
     end)
     
-    credstab:Label('Owner/Founder: Grant1ed#4919')
-        credstab:Label('Lead Developer/Scripter: Ducky#3566')
+    credstab:Label('Programmed by Ducky#3566')
         
     credstab:Button("Copy Discord Invite", function()
             
