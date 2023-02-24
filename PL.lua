@@ -838,7 +838,6 @@ end)
         
         game.Players.LocalPlayer.Character:BreakJoints()
 
-        lib:Notification("Notification", "Successfully died!", "Close") -- (header, text, closebutton) --
     end)
 
     misctab:Button('Rejoin Server', function()
@@ -924,9 +923,8 @@ end)
     uitab:Colorpicker("Change UI Color",Color3.fromRGB(233, 125, 245), function(t)
         lib:ChangePresetColor(Color3.fromRGB(t.R * 255, t.G * 255, t.B * 255))
     end)
-    
-    credstab:Label('Owner/Founder: Grant1ed#4919')
-    credstab:Label('Lead Developer/Scripter: Ducky#3566')
+
+    credstab:Label('Programmed by Ducky#3566')
     
     credstab:Button("Copy Discord Invite", function()
         
