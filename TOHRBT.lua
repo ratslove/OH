@@ -158,23 +158,20 @@ if game.PlaceId == 7227293156 then
     for i, connection in next, getconnections(script2signal) do
         connection:Disable()
     end
- 
-    script1:Destroy()
-    script2:Destroy()
 
-    maintab:Slider('WalkSpeed', 16, 100, 16, function(value1)    
+    maintab:Slider('WalkSpeed', 0, 100, 16, function(value1)    
         
         game:GetService("ReplicatedStorage").globalSpeed.Value = value1
     
     end)
     
-    maintab:Slider('JumpPower', 50, 200, 50, function(value2)
+    maintab:Slider('JumpPower', 0, 200, 50, function(value2)
     
         game.Players.LocalPlayer.Character.Humanoid.JumpPower = value2
     
     end)
     
-    maintab:Slider('Field of View', 70, 120, 70, function(amount)
+    maintab:Slider('Field of View', 0, 120, 70, function(amount)
         
         game:GetService'Workspace'.Camera.FieldOfView = amount
     
@@ -404,6 +401,34 @@ if game.PlaceId == 7227293156 then
             end
 
             game.Lighting.FogEnd = 1200
+            
+
+        end
+    end
+
+    end)
+
+    utiltab:Toggle("Anti Speed", false, function(value)
+    
+        antiSpeed = value
+
+        if antiSpeed == true then
+
+            _G.antiSpeeder = true
+            while _G.antiSpeeder == true do
+                wait()
+                game:GetService("ReplicatedStorage").globalSpeed.Value = 16
+            end
+
+        else if antiSpeed == false then
+
+            _G.antiSpeeder = false
+            while _G.antiSpeeder == true do
+                wait()
+                game:GetService("ReplicatedStorage").globalSpeed.Value = 16
+            end
+
+            game:GetService("ReplicatedStorage").globalSpeed.Value = 16
             
 
         end
