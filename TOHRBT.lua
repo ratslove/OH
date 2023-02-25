@@ -414,22 +414,11 @@ if game.PlaceId == 7227293156 then
 
         if antiSpeed == true then
 
-            _G.antiSpeeder = true
-            while _G.antiSpeeder == true do
-                wait()
-                game:GetService("ReplicatedStorage").globalSpeed.Value = 16
-            end
-
-        else if antiSpeed == false then
-
-            _G.antiSpeeder = false
-            while _G.antiSpeeder == true do
-                wait()
-                game:GetService("ReplicatedStorage").globalSpeed.Value = 16
-            end
-
             game:GetService("ReplicatedStorage").globalSpeed.Value = 16
+
+        else if antiSpeed == false then 
             
+            game:GetService("ReplicatedStorage").globalSpeed.Value = 16 
 
         end
     end
