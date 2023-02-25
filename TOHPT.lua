@@ -1,4 +1,4 @@
-if game.PlaceId == 3582763398 then
+if game.PlaceId == 1962086868 then
 
     local lib = loadstring(game:HttpGet"https://raw.githubusercontent.com/bruvzz/ducklibrary/main/src.lua")()
 
@@ -9,7 +9,7 @@ if game.PlaceId == 3582763398 then
 
     States = {}
 
-    local win = lib:Window("Oasis Hub - Tower of Hell (Pro Towers)",Color3.fromRGB(93, 143, 194), Enum.KeyCode)
+    local win = lib:Window("Oasis Hub - Tower of Hell (Noob Towers)",Color3.fromRGB(93, 143, 194), Enum.KeyCode)
         
     local maintab = win:Tab("Local Player")
     local utiltab = win:Tab("Utilities")
