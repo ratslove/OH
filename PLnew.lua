@@ -434,7 +434,7 @@ if game.PlaceId == 155615604 then
     	
     end)
     
-    local Dropdown = Section2:AddDropdown("Gun Mods", {"M9", "Remington 870", "AK-47"}, {default = ""}, function(selected)
+    local Dropdown = Section2:AddDropdown("Gun Mods", {"M9", "Remington 870", "AK-47"}, {default = ""}, function(v)
 	
 	    local module = nil
         if game:GetService("Players").LocalPlayer.Backpack:FindFirstChild(v) then
