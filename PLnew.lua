@@ -947,7 +947,7 @@ if game.PlaceId == 155615604 then
     
     getgenv().esp_loaded = false
     getgenv().Visibility = false
-    getgenv().useTeamColor = true
+    getgenv().useTeamColor = false
     
     local Toggle15 = Section6:AddToggle("Toggle ESP", {flag = "Toggle_Flag", default = false}, function(bool)
         	
@@ -979,7 +979,7 @@ if game.PlaceId == 155615604 then
         	
     end)
     
-    local Toggle18 = Section6:AddToggle("Use Team Color", {flag = "Toggle_Flag", default = true}, function(bool)
+    local Toggle18 = Section6:AddToggle("Use Team Color", {flag = "Toggle_Flag", default = false}, function(bool)
         	
         	if bool == true then
         	    
