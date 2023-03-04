@@ -144,7 +144,7 @@ if game.PlaceId == 5253186791 then
     local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/UI-Libraries/main/Vynixius/Source.lua"))()
     
     local Window = Library:AddWindow({
-    	title = {"Oasis Hub", "Tower of Hell [Appeal Battles]"},
+    	title = {"Oasis Hub", "Tower of Hell [Appeal Towers]"},
     	theme = {
     		Accent = Color3.fromRGB(93, 143, 194)
     	},
