@@ -384,6 +384,8 @@ if game.PlaceId == 6839171747 then
                 
     end)
 
+    local entityNames = {"RushMoving","AmbushMoving","Snare","A60","A120"}
+    
     local Toggle11 = Section5:AddToggle("Notify for Entities", {flag = "Toggle_Flag", default = false}, function(val)
                 
         flags.hintrush = val
@@ -391,11 +393,11 @@ if game.PlaceId == 6839171747 then
         if val then
             local addconnect
             addconnect = workspace.ChildAdded:Connect(function(v)
-                if table.find(entitynames,v.Name) then
+                if table.find(entityNames,v.Name) then
                     repeat task.wait() until plr:DistanceFromCharacter(v:GetPivot().Position) < 1000 or not v:IsDescendantOf(workspace)
                     
                     if v:IsDescendantOf(workspace) then
-                        Library:Notify({title = "Alert", text = v.Name:gsub("Moving",""):lower().." is coming. Hide!", color = Color3.fromRGB(166, 112, 36)}, function(v)
+                        Library:Notify({title = "Alert", text = v.Name:gsub("Moving","").." has spawned. Hide quickly!", color = Color3.fromRGB(166, 112, 36)}, function(v)
                     
                         end)
                     end
