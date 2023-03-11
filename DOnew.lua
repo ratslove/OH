@@ -20,7 +20,7 @@ if game.PlaceId == 6839171747 then
     local Window = Library:AddWindow({
         title = {"Oasis Hub", "Doors"},
         theme = {
-            Accent = Color3.fromRGB(166, 112, 36)
+            Accent = Color3.fromRGB(43, 153, 8)
         },
         key = Enum.KeyCode.RightControl,
         default = true
@@ -41,7 +41,7 @@ if game.PlaceId == 6839171747 then
     local Section5 = Tab4:AddSection("Other", {default = false})
 
 
-    local Slider = Section:AddSlider("WalkSpeed", 15, 20, 15, {toggleable = true, default = false, flag = "Slider_Flag", fireontoggle = true, fireondrag = true, rounded = true}, function(val, bool)
+    local Slider = Section:AddSlider("WalkSpeed", 15, 22, 15, {toggleable = true, default = false, flag = "Slider_Flag1", fireontoggle = true, fireondrag = true, rounded = true}, function(val, bool)
                 
                 if bool == true then
                     hum.WalkSpeed = val
@@ -87,7 +87,7 @@ if game.PlaceId == 6839171747 then
         end
     end
 
-    local Toggle = Section:AddToggle("NoClip", {flag = "Toggle_Flag", default = false}, function(bool)
+    local Toggle = Section:AddToggle("NoClip", {flag = "Toggle_Flag1", default = false}, function(bool)
                 
             getgenv().nokiz = bool
                 if getgenv().nokiz == true then
@@ -119,7 +119,7 @@ if game.PlaceId == 6839171747 then
 
     _G.ToggleAmbient = false
 
-    local Toggle2 = Section2:AddToggle("Fix Lighting", {flag = "Toggle_Flag", default = false}, function(bool)
+    local Toggle2 = Section2:AddToggle("Fix Lighting", {flag = "Toggle_Flag2", default = false}, function(bool)
 
         getgenv().autoLight = bool
 
@@ -155,7 +155,7 @@ if game.PlaceId == 6839171747 then
         
     end)
 
-    local Toggle3 = Section2:AddToggle("Auto Loot", {flag = "Toggle_Flag", default = false}, function(val)
+    local Toggle3 = Section2:AddToggle("Auto Loot", {flag = "Toggle_Flag3", default = false}, function(val)
 
         flags.draweraura = val
         
@@ -256,7 +256,7 @@ if game.PlaceId == 6839171747 then
 
     end)
 
-    local Toggle4 = Section2:AddToggle("Auto Win Heartbeat", {flag = "Toggle_Flag", default = false}, function(val)
+    local Toggle4 = Section2:AddToggle("Auto Win Heartbeat", {flag = "Toggle_Flag4", default = false}, function(val)
 
         local old
         old = hookmetamethod(game,"__namecall",newcclosure(function(self,...)
@@ -273,7 +273,7 @@ if game.PlaceId == 6839171747 then
         end))
     end)
 
-    local Toggle5 = Section2:AddToggle("No E Wait", {flag = "Toggle_Flag", default = false}, function(val)
+    local Toggle5 = Section2:AddToggle("No E Wait", {flag = "Toggle_Flag5", default = false}, function(val)
 
         flags.instapp = val
         
@@ -287,7 +287,7 @@ if game.PlaceId == 6839171747 then
 
     end)
 
-    local Toggle6 = Section2:AddToggle("No Gates", {flag = "Toggle_Flag", default = false}, function(val)
+    local Toggle6 = Section2:AddToggle("No Gates", {flag = "Toggle_Flag6", default = false}, function(val)
 
         flags.nogates = val
         
@@ -312,7 +312,7 @@ if game.PlaceId == 6839171747 then
 
     end)
 
-    local Toggle7 = Section3:AddToggle("Bypass Spider Visual", {flag = "Toggle_Flag", default = false}, function(bool)
+    local Toggle7 = Section3:AddToggle("Bypass Spider Visual", {flag = "Toggle_Flag7", default = false}, function(bool)
 
         if bool == true then
             
@@ -329,7 +329,7 @@ if game.PlaceId == 6839171747 then
 
     end)
 
-    local Toggle8 = Section3:AddToggle("Bypass Screech", {flag = "Toggle_Flag", default = false}, function(bool)
+    local Toggle8 = Section3:AddToggle("Bypass Screech", {flag = "Toggle_Flag8", default = false}, function(bool)
 
         if bool == true then
             
@@ -346,7 +346,7 @@ if game.PlaceId == 6839171747 then
 
     end)
 
-    local Toggle9 = Section3:AddToggle("Bypass Seek", {flag = "Toggle_Flag", default = false}, function(bool)
+    local Toggle9 = Section3:AddToggle("Bypass Seek", {flag = "Toggle_Flag9", default = false}, function(bool)
 
         flags.noseek = bool
         
@@ -369,11 +369,11 @@ if game.PlaceId == 6839171747 then
 
     local Label = Section4:AddLabel("Coming Soon!")
 
-    local Picker = Section5:AddPicker("Change UI Color", {color = Color3.fromRGB(166, 112, 36)}, function(color)
+    local Picker = Section5:AddPicker("Change UI Color", {color = Color3.fromRGB(43, 153, 8)}, function(color)
         Window:SetAccent(color)
     end)
 
-    local Toggle10 = Section5:AddToggle("Anti AFK", {flag = "Toggle_Flag", default = false}, function(bool)
+    local Toggle10 = Section5:AddToggle("Anti AFK", {flag = "Toggle_Flag10", default = false}, function(bool)
                 
         local vu = game:GetService("VirtualUser")
         game:GetService("Players").LocalPlayer.Idled:connect(function()
@@ -386,7 +386,7 @@ if game.PlaceId == 6839171747 then
 
     local entityNames = {"RushMoving","AmbushMoving","Snare","A60","A120"}
     
-    local Toggle11 = Section5:AddToggle("Notify for Entities", {flag = "Toggle_Flag", default = false}, function(val)
+    local Toggle11 = Section5:AddToggle("Notify for Entities", {flag = "Toggle_Flag11", default = false}, function(val)
                 
         flags.hintrush = val
         
@@ -397,7 +397,7 @@ if game.PlaceId == 6839171747 then
                     repeat task.wait() until plr:DistanceFromCharacter(v:GetPivot().Position) < 1000 or not v:IsDescendantOf(workspace)
                     
                     if v:IsDescendantOf(workspace) then
-                        Library:Notify({title = "Alert", text = v.Name:gsub("Moving","").." has spawned. Hide quickly!", color = Color3.fromRGB(166, 112, 36)}, function(v)
+                        Library:Notify({title = "Alert", text = v.Name:gsub("Moving","").." has spawned. Hide quickly!", color = Color3.fromRGB(43, 153, 8)}, function(v)
                     
                         end)
                     end
@@ -415,7 +415,7 @@ if game.PlaceId == 6839171747 then
     local Button5 = Section5:AddButton("Copy Discord Invitation", function()
                 
         setclipboard("https://discord.gg/t2wWA3hph3")
-        Library:Notify({title = "Alert", text = "Copied Discord Invitation!", color = Color3.fromRGB(166, 112, 36)}, function(v)
+        Library:Notify({title = "Alert", text = "Copied Discord Invitation!", color = Color3.fromRGB(43, 153, 8)}, function(v)
                     
         end)
                 
@@ -425,7 +425,7 @@ if game.PlaceId == 6839171747 then
         Window:SetKey(keycode)
     end)
             
-    Library:Notify({title = "Notification", text = "Loaded.", color = Color3.fromRGB(166, 112, 36)}, function(v)
+    Library:Notify({title = "Notification", text = "Loaded.", color = Color3.fromRGB(43, 153, 8)}, function(v)
                     
     end)
 
