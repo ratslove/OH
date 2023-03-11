@@ -127,7 +127,7 @@ if game.PlaceId == 3956818381 then
     local Section4 = Tab4:AddSection("Others", {default = false})
     local Section5 = Tab4:AddSection("User-Interface", {default = false})
     
-    local Slider = Section:AddSlider("WalkSpeed", 16, 300, 16, {toggleable = true, default = false, flag = "Slider_Flag", fireontoggle = true, fireondrag = true, rounded = true}, function(val, bool)
+    local Slider = Section:AddSlider("WalkSpeed", 16, 300, 16, {toggleable = true, default = false, flag = "Slider_Flag1", fireontoggle = true, fireondrag = true, rounded = true}, function(val, bool)
         	
             if bool == true then
                 game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = val
@@ -139,7 +139,7 @@ if game.PlaceId == 3956818381 then
         	
     end)
     
-    local Slider2 = Section:AddSlider("JumpPower", 50, 500, 50, {toggleable = true, default = false, flag = "Slider_Flag", fireontoggle = true, fireondrag = true, rounded = true}, function(val, bool)
+    local Slider2 = Section:AddSlider("JumpPower", 50, 500, 50, {toggleable = true, default = false, flag = "Slider_Flag2", fireontoggle = true, fireondrag = true, rounded = true}, function(val, bool)
         	
         if bool == true then
             game.Players.LocalPlayer.Character.Humanoid.JumpPower = val
@@ -151,7 +151,7 @@ if game.PlaceId == 3956818381 then
         	
     end)
     
-    local Slider3 = Section:AddSlider("Field of View", 70, 120, 70, {toggleable = true, default = false, flag = "Slider_Flag", fireontoggle = true, fireondrag = true, rounded = true}, function(val, bool)
+    local Slider3 = Section:AddSlider("Field of View", 70, 120, 70, {toggleable = true, default = false, flag = "Slider_Flag3", fireontoggle = true, fireondrag = true, rounded = true}, function(val, bool)
         	
         	if bool == true then
         	    game:GetService'Workspace'.Camera.FieldOfView = val
@@ -163,7 +163,7 @@ if game.PlaceId == 3956818381 then
         	
     end)
     
-    local Toggle = Section:AddToggle("Infinite Jump", {flag = "Toggle_Flag", default = false}, function(bool)
+    local Toggle = Section:AddToggle("Infinite Jump", {flag = "Toggle_Flag1", default = false}, function(bool)
         	
         	getgenv().infjumper = bool
                 
@@ -191,7 +191,7 @@ if game.PlaceId == 3956818381 then
         	
     end)
     
-    local Toggle2 = Section:AddToggle("Fly", {flag = "Toggle_Flag", default = false}, function(bool)
+    local Toggle2 = Section:AddToggle("Fly", {flag = "Toggle_Flag2", default = false}, function(bool)
         	
         	getgenv().flyerwow = bool
         
@@ -218,7 +218,7 @@ if game.PlaceId == 3956818381 then
         	
     end)
     
-    local Toggle3 = Section2:AddToggle("Auto Swing", {flag = "Toggle_Flag", default = false}, function(bool)
+    local Toggle3 = Section2:AddToggle("Auto Swing", {flag = "Toggle_Flag3", default = false}, function(bool)
         	
         	getgenv().autoswing = bool
             while true do 
@@ -237,7 +237,7 @@ if game.PlaceId == 3956818381 then
         	
     end)
     
-    local Toggle4 = Section2:AddToggle("Auto Buy Swords", {flag = "Toggle_Flag", default = false}, function(bool)
+    local Toggle4 = Section2:AddToggle("Auto Buy Swords", {flag = "Toggle_Flag4", default = false}, function(bool)
         	
         	getgenv().buyswords = bool
             while true do
@@ -251,7 +251,7 @@ if game.PlaceId == 3956818381 then
         	
     end)
     
-    local Toggle5 = Section2:AddToggle("Auto Buy Belts", {flag = "Toggle_Flag", default = false}, function(bool)
+    local Toggle5 = Section2:AddToggle("Auto Buy Belts", {flag = "Toggle_Flag5", default = false}, function(bool)
         	
         	getgenv().buybelts = bool
             while true do
@@ -265,7 +265,7 @@ if game.PlaceId == 3956818381 then
         	
     end)
     
-    local Toggle6 = Section2:AddToggle("Auto Sell", {flag = "Toggle_Flag", default = false}, function(bool)
+    local Toggle6 = Section2:AddToggle("Auto Sell", {flag = "Toggle_Flag6", default = false}, function(bool)
         	
         	getgenv().autosell = bool
             while true do
@@ -497,7 +497,7 @@ if game.PlaceId == 3956818381 then
     
     end)
     
-    local Toggle7 = Section4:AddToggle("Anti AFK", {flag = "Toggle_Flag", default = false}, function(bool)
+    local Toggle7 = Section4:AddToggle("Anti AFK", {flag = "Toggle_Flag7", default = false}, function(bool)
         	
         	local vu = game:GetService("VirtualUser")
             game:GetService("Players").LocalPlayer.Idled:connect(function()
