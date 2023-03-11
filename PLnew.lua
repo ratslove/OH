@@ -216,7 +216,7 @@ if game.PlaceId == 155615604 then
     local Section6 = Tab5:AddSection("ESP", {default = false})
     local Section7 = Tab6:AddSection("Other", {default = false})
     
-    local Slider = Section:AddSlider("WalkSpeed", 16, 200, 16, {toggleable = true, default = false, flag = "Slider_Flag", fireontoggle = true, fireondrag = true, rounded = true}, function(val, bool)
+    local Slider = Section:AddSlider("WalkSpeed", 16, 200, 16, {toggleable = true, default = false, flag = "Slider_Flag1", fireontoggle = true, fireondrag = true, rounded = true}, function(val, bool)
         	
             if bool == true then
                 
@@ -255,7 +255,7 @@ if game.PlaceId == 155615604 then
         	
     end)
     
-    local Slider2 = Section:AddSlider("JumpPower", 50, 200, 50, {toggleable = true, default = false, flag = "Slider_Flag", fireontoggle = true, fireondrag = true, rounded = true}, function(val, bool)
+    local Slider2 = Section:AddSlider("JumpPower", 50, 200, 50, {toggleable = true, default = false, flag = "Slider_Flag2", fireontoggle = true, fireondrag = true, rounded = true}, function(val, bool)
         	
         if bool == true then
             
@@ -283,7 +283,7 @@ if game.PlaceId == 155615604 then
         	
     end)
     
-    local Slider3 = Section:AddSlider("Field of View", 70, 120, 70, {toggleable = true, default = false, flag = "Slider_Flag", fireontoggle = true, fireondrag = true, rounded = true}, function(val, bool)
+    local Slider3 = Section:AddSlider("Field of View", 70, 120, 70, {toggleable = true, default = false, flag = "Slider_Flag3", fireontoggle = true, fireondrag = true, rounded = true}, function(val, bool)
         	
         	if bool == true then
         	    game:GetService'Workspace'.Camera.FieldOfView = val
@@ -295,7 +295,7 @@ if game.PlaceId == 155615604 then
         	
     end)
     
-    local Toggle = Section:AddToggle("NoClip", {flag = "Toggle_Flag", default = false}, function(bool)
+    local Toggle = Section:AddToggle("NoClip", {flag = "Toggle_Flag1", default = false}, function(bool)
     	
     	getgenv().nokiz = bool
             if getgenv().nokiz == true then
@@ -319,7 +319,7 @@ if game.PlaceId == 155615604 then
     	
     end)
     
-    local Toggle2 = Section:AddToggle("Infinite Jump", {flag = "Toggle_Flag", default = false}, function(bool)
+    local Toggle2 = Section:AddToggle("Infinite Jump", {flag = "Toggle_Flag2", default = false}, function(bool)
     	
     	getgenv().infjumper = bool
             
@@ -347,7 +347,7 @@ if game.PlaceId == 155615604 then
     	
     end)
     
-    local Toggle3 = Section:AddToggle("Fly", {flag = "Toggle_Flag", default = false}, function(bool)
+    local Toggle3 = Section:AddToggle("Fly", {flag = "Toggle_Flag3", default = false}, function(bool)
     	
     	getgenv().flyerwow = bool
     
@@ -374,7 +374,7 @@ if game.PlaceId == 155615604 then
     	
     end)
     
-    local Toggle4 = Section:AddToggle("Vehicle Fly", {flag = "Toggle_Flag", default = false}, function(bool)
+    local Toggle4 = Section:AddToggle("Vehicle Fly", {flag = "Toggle_Flag4", default = false}, function(bool)
     	
     	getgenv().flyerwow2 = bool
 
@@ -483,7 +483,7 @@ if game.PlaceId == 155615604 then
         game:GetService("Players").LocalPlayer.Character:SetPrimaryPartCFrame(saved)
     end
 
-    local Toggle5 = Section2:AddToggle("Respawn with Guns", {flag = "Toggle_Flag", default = false}, function(bool)
+    local Toggle5 = Section2:AddToggle("Respawn with Guns", {flag = "Toggle_Flag5", default = false}, function(bool)
     	
     	if bool == true then
     
@@ -509,7 +509,7 @@ if game.PlaceId == 155615604 then
         end)
     end)
     
-    local Toggle6 = Section2:AddToggle("Instant Respawn", {flag = "Toggle_Flag", default = false}, function(bool)
+    local Toggle6 = Section2:AddToggle("Instant Respawn", {flag = "Toggle_Flag6", default = false}, function(bool)
     	
     	if bool == true then
         
@@ -541,7 +541,7 @@ if game.PlaceId == 155615604 then
     	
     end)
     
-    local Toggle7 = Section2:AddToggle("Infinite Stamina", {flag = "Toggle_Flag", default = false}, function(bool)
+    local Toggle7 = Section2:AddToggle("Infinite Stamina", {flag = "Toggle_Flag7", default = false}, function(bool)
     	
     	stamina_thing = bool
     
@@ -598,7 +598,7 @@ if game.PlaceId == 155615604 then
         end
     end)()
     
-    local Toggle8 = Section2:AddToggle("Kill Aura", {flag = "Toggle_Flag", default = false}, function(bool)
+    local Toggle8 = Section2:AddToggle("Kill Aura", {flag = "Toggle_Flag8", default = false}, function(bool)
     	
     	getgenv().killauralol = bool
         if getgenv().killauralol == true then
@@ -633,7 +633,7 @@ if game.PlaceId == 155615604 then
     	end
     end)()
     
-    local Toggle9 = Section2:AddToggle("Anti Void", {flag = "Toggle_Flag", default = false}, function(bool)
+    local Toggle9 = Section2:AddToggle("Anti Void", {flag = "Toggle_Flag9", default = false}, function(bool)
     	
     	getgenv().antiviv = bool
         if getgenv().antiviv == true then
@@ -659,7 +659,7 @@ if game.PlaceId == 155615604 then
     	
     end)
     
-    local Toggle10 = Section2:AddToggle("Super Punch", {flag = "Toggle_Flag", default = false}, function(bool)
+    local Toggle10 = Section2:AddToggle("Super Punch", {flag = "Toggle_Flag10", default = false}, function(bool)
     	
     	getgenv().superpuncher = bool
         if getgenv().superpuncher == true then
@@ -740,7 +740,7 @@ if game.PlaceId == 155615604 then
     	
     end)
     
-    local Toggle11 = Section2:AddToggle("Fast Punch", {flag = "Toggle_Flag", default = false}, function(bool)
+    local Toggle11 = Section2:AddToggle("Fast Punch", {flag = "Toggle_Flag11", default = false}, function(bool)
     	
     	getgenv().fastpunch = bool
         if getgenv().fastpunch == true then
@@ -765,7 +765,7 @@ if game.PlaceId == 155615604 then
     	
     end)
     
-    local Toggle12 = Section3:AddToggle("No Prison Doors", {flag = "Toggle_Flag", default = false}, function(bool)
+    local Toggle12 = Section3:AddToggle("No Prison Doors", {flag = "Toggle_Flag12", default = false}, function(bool)
     	
     	getgenv().door = bool
         if getgenv().door == true then 
@@ -786,7 +786,7 @@ if game.PlaceId == 155615604 then
     	
     end)
     
-    local Toggle13 = Section3:AddToggle("No Prison Cell Gates", {flag = "Toggle_Flag", default = false}, function(bool)
+    local Toggle13 = Section3:AddToggle("No Prison Cell Gates", {flag = "Toggle_Flag13", default = false}, function(bool)
     	
     	getgenv().cell = bool
         if getgenv().cell == true then 
@@ -807,7 +807,7 @@ if game.PlaceId == 155615604 then
     	
     end)
     
-    local Toggle14 = Section3:AddToggle("No Prison Fences", {flag = "Toggle_Flag", default = false}, function(bool)
+    local Toggle14 = Section3:AddToggle("No Prison Fences", {flag = "Toggle_Flag14", default = false}, function(bool)
     	
     	getgenv().fence = bool
         if getgenv().fence == true then 
@@ -949,7 +949,7 @@ if game.PlaceId == 155615604 then
     getgenv().Visibility = false
     getgenv().useTeamColor = false
     
-    local Toggle15 = Section6:AddToggle("Toggle ESP", {flag = "Toggle_Flag", default = false}, function(bool)
+    local Toggle15 = Section6:AddToggle("Toggle ESP", {flag = "Toggle_Flag15", default = false}, function(bool)
         	
         	if getgenv().esp_loaded == false and bool == true then
                 getgenv().esp_loaded = true
@@ -959,7 +959,7 @@ if game.PlaceId == 155615604 then
         	
     end)
     
-    local Toggle16 = Section6:AddToggle("Name ESP", {flag = "Toggle_Flag", default = false}, function(bool)
+    local Toggle16 = Section6:AddToggle("Name ESP", {flag = "Toggle_Flag16", default = false}, function(bool)
         	
         	if getgenv().esp_loaded == false and bool == true then
                 getgenv().esp_loaded = true
@@ -969,7 +969,7 @@ if game.PlaceId == 155615604 then
         	
     end)
     
-    local Toggle17 = Section6:AddToggle("Box ESP", {flag = "Toggle_Flag", default = false}, function(bool)
+    local Toggle17 = Section6:AddToggle("Box ESP", {flag = "Toggle_Flag17", default = false}, function(bool)
         	
         	if getgenv().esp_loaded == false and bool == true then
                 getgenv().esp_loaded = true
@@ -979,7 +979,7 @@ if game.PlaceId == 155615604 then
         	
     end)
     
-    local Toggle18 = Section6:AddToggle("Use Team Color", {flag = "Toggle_Flag", default = false}, function(bool)
+    local Toggle18 = Section6:AddToggle("Use Team Color", {flag = "Toggle_Flag18", default = false}, function(bool)
         	
         	if bool == true then
         	    
@@ -1010,7 +1010,7 @@ if game.PlaceId == 155615604 then
         	
     end)
     
-    local Bind = Section7:AddBind("Toggle UI", Enum.KeyCode.RightControl, {toggleable = false, default = false, flag = "Bind_Flag"}, function(keycode)
+    local Bind = Section7:AddBind("Toggle UI", Enum.KeyCode.RightControl, {toggleable = true, default = false, flag = "Bind_Flag1"}, function(keycode)
         	Window:SetKey(keycode)
         end)
         
