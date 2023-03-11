@@ -139,7 +139,7 @@ if game.PlaceId == 4842364293 then
     local Section3 = Tab3:AddSection("ESP", {default = false})
     local Section4 = Tab4:AddSection("Others", {default = false})
     
-    local Slider = Section:AddSlider("WalkSpeed", 16, 50, 16, {toggleable = true, default = false, flag = "Slider_Flag", fireontoggle = true, fireondrag = true, rounded = true}, function(val, bool)
+    local Slider = Section:AddSlider("WalkSpeed", 16, 50, 16, {toggleable = true, default = false, flag = "Slider_Flag1", fireontoggle = true, fireondrag = true, rounded = true}, function(val, bool)
         	
             if bool == true then
                 game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = val
@@ -151,7 +151,7 @@ if game.PlaceId == 4842364293 then
         	
     end)
     
-    local Slider2 = Section:AddSlider("JumpPower", 50, 150, 50, {toggleable = true, default = false, flag = "Slider_Flag", fireontoggle = true, fireondrag = true, rounded = true}, function(val, bool)
+    local Slider2 = Section:AddSlider("JumpPower", 50, 150, 50, {toggleable = true, default = false, flag = "Slider_Flag2", fireontoggle = true, fireondrag = true, rounded = true}, function(val, bool)
         	
         if bool == true then
             game.Players.LocalPlayer.Character.Humanoid.JumpPower = val
@@ -163,7 +163,7 @@ if game.PlaceId == 4842364293 then
         	
     end)
     
-    local Slider3 = Section:AddSlider("Field of View", 70, 120, 70, {toggleable = true, default = false, flag = "Slider_Flag", fireontoggle = true, fireondrag = true, rounded = true}, function(val, bool)
+    local Slider3 = Section:AddSlider("Field of View", 70, 120, 70, {toggleable = true, default = false, flag = "Slider_Flag3", fireontoggle = true, fireondrag = true, rounded = true}, function(val, bool)
         	
         	if bool == true then
         	    game:GetService'Workspace'.Camera.FieldOfView = val
@@ -175,7 +175,7 @@ if game.PlaceId == 4842364293 then
         	
     end)
     
-    local Toggle = Section:AddToggle("Infinite Jump", {flag = "Toggle_Flag", default = false}, function(bool)
+    local Toggle = Section:AddToggle("Infinite Jump", {flag = "Toggle_Flag1", default = false}, function(bool)
         	
         	getgenv().infjumper = bool
                 
@@ -216,7 +216,7 @@ if game.PlaceId == 4842364293 then
     end
     end
     
-    local Toggle2 = Section:AddToggle("NoClip", {flag = "Toggle_Flag", default = false}, function(bool)
+    local Toggle2 = Section:AddToggle("NoClip", {flag = "Toggle_Flag2", default = false}, function(bool)
         	
         	getgenv().nokiz = bool
                 if getgenv().nokiz == true then
@@ -246,7 +246,7 @@ if game.PlaceId == 4842364293 then
         	
     end)
     
-    local Toggle3 = Section:AddToggle("Fly", {flag = "Toggle_Flag", default = false}, function(bool)
+    local Toggle3 = Section:AddToggle("Fly", {flag = "Toggle_Flag3", default = false}, function(bool)
         	
         	getgenv().flyerwow = bool
         
@@ -273,7 +273,7 @@ if game.PlaceId == 4842364293 then
         	
     end)
     
-    local Toggle4 = Section2:AddToggle("Fix Lighting", {flag = "Toggle_Flag", default = false}, function(bool)
+    local Toggle4 = Section2:AddToggle("Fix Lighting", {flag = "Toggle_Flag4", default = false}, function(bool)
         	
         	getgenv().autoLight = bool
     
@@ -301,7 +301,7 @@ if game.PlaceId == 4842364293 then
         	
     end)
     
-    local Toggle5 = Section2:AddToggle("Auto Skip Scene", {flag = "Toggle_Flag", default = false}, function(bool)
+    local Toggle5 = Section2:AddToggle("Auto Skip Scene", {flag = "Toggle_Flag5", default = false}, function(bool)
         	
         	getgenv().autoSkip = bool
     
@@ -385,7 +385,7 @@ if game.PlaceId == 4842364293 then
     getgenv().esp_loaded = false
     getgenv().Visibility = false
     
-    local Toggle6 = Section3:AddToggle("Toggle ESP", {flag = "Toggle_Flag", default = false}, function(bool)
+    local Toggle6 = Section3:AddToggle("Toggle ESP", {flag = "Toggle_Flag6", default = false}, function(bool)
         	
         	if getgenv().esp_loaded == false and bool == true then
                 getgenv().esp_loaded = true
@@ -395,7 +395,7 @@ if game.PlaceId == 4842364293 then
         	
     end)
     
-    local Toggle7 = Section3:AddToggle("Name ESP", {flag = "Toggle_Flag", default = false}, function(bool)
+    local Toggle7 = Section3:AddToggle("Name ESP", {flag = "Toggle_Flag7", default = false}, function(bool)
         	
         	if getgenv().esp_loaded == false and bool == true then
                 getgenv().esp_loaded = true
@@ -405,7 +405,7 @@ if game.PlaceId == 4842364293 then
         	
     end)
     
-    local Toggle8 = Section3:AddToggle("Box ESP", {flag = "Toggle_Flag", default = false}, function(bool)
+    local Toggle8 = Section3:AddToggle("Box ESP", {flag = "Toggle_Flag8", default = false}, function(bool)
         	
         	if getgenv().esp_loaded == false and bool == true then
                 getgenv().esp_loaded = true
@@ -430,7 +430,7 @@ if game.PlaceId == 4842364293 then
         	
     end)
     
-    local Bind = Section4:AddBind("Toggle UI", Enum.KeyCode.RightControl, {toggleable = false, default = false, flag = "Bind_Flag"}, function(keycode)
+    local Bind = Section4:AddBind("Toggle UI", Enum.KeyCode.RightControl, {toggleable = false, default = false, flag = "Bind_Flag1"}, function(keycode)
         	Window:SetKey(keycode)
         end)
         
