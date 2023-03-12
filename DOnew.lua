@@ -117,8 +117,6 @@ if game.PlaceId == 6839171747 then
                 
     end)
 
-    _G.ToggleAmbient = false
-
     local Toggle2 = Section2:AddToggle("Fix Lighting", {flag = "Toggle_Flag2", default = false}, function(bool)
 
         getgenv().autoLight = bool
