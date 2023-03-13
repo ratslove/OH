@@ -1,4 +1,4 @@
-if game.PlaceId == 6839171747 then
+
 
     local plr = game.Players.LocalPlayer
     local char = plr.Character or plr.CharacterAdded:Wait()
@@ -63,6 +63,28 @@ if game.PlaceId == 6839171747 then
             
             task.wait()
         end
+    end)
+
+    local fovThing;
+    local Slider2 = Section:AddSlider("Field of View", 70, 120, 70, {toggleable = true, default = false, flag = "Slider_Flag2", fireontoggle = true, fireondrag = true, rounded = true}, function(val, bool)
+                
+        if bool == true then
+            
+            fovThing = val
+
+            else if bool == false then
+                
+                fovThing = 70     
+                        
+            end
+        end
+        
+    end)
+
+    game:GetService("RunService").RenderStepped:Connect(function()
+        pcall(function()
+            game:GetService("Workspace").CurrentCamera.FieldOfView = fovThing
+        end)
     end)
 
     function randomString()
@@ -426,5 +448,3 @@ if game.PlaceId == 6839171747 then
     Library:Notify({title = "Notification", text = "Loaded.", color = Color3.fromRGB(43, 153, 8)}, function(v)
                     
     end)
-
-end
