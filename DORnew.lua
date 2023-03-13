@@ -338,9 +338,9 @@ local Toggle6 = Section5:AddToggle("Anti AFK", {flag = "Toggle_Flag6", default =
                 
 end)
 
-local entityNames = {"RushMoving","AmbushMoving","Snare","A-060","A-120"}
+local entityNames = {"RushMoving","AmbushMoving","Snare","A60","A120"}
     
-local Toggle11 = Section5:AddToggle("Notify for Entities", {flag = "Toggle_Flag11", default = false}, function(val)
+local Toggle7 = Section5:AddToggle("Notify for Entities", {flag = "Toggle_Flag7", default = false}, function(val)
                 
     flags.hintrush = val
         
